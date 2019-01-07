@@ -1,0 +1,38 @@
+run_name: 'dqn-test'
+
+#env_id: 'SpaceInvaders-v0'
+#env_id: '-v0'
+#env_id: 'Riverraid-v0'
+env_id: 'Seaquest-v0'
+#env_id: 'Pong-v0'
+#env_id: 'Frostbite-v0'
+model_class: DQN
+
+output_dir: 'outputs'
+logs_dir: 'tf_logs'
+models_dir: 'models'
+save_model_frequency: !!int 12345
+max_checkpoints_to_keep: !!int 30
+keep_checkpoint_every_n_hours: !!int 1
+
+input_img_shape: !!python/tuple [84, 84]
+num_input_images: !!int 4
+
+optimizer: 'RMSProp'
+batch_size : !!int 32
+learning_rate: !!float 0.00025
+momentum: !!float 0.0
+rmsprop_decay: !!float 0.95
+rmsprop_centered: True
+
+max_grad_norm: !!float 5.0
+
+initial_exploration_prob: !!float 0.8
+final_exploration_prob: !!float 0.1
+final_exploration_frame: !!int 5000
+gamma: !!float 0.99
+
+update_frequency: !!int 1
+target_update_frequency: !!int 500
+max_replay_memory_size: !!int 30000
+replay_start_size: !!int 500
